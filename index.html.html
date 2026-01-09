@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臻宝阁 - 高端珠宝定制与鉴赏</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#9f7a49',secondary:'#2c3e50'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Noto Serif SC', serif;
+color: #333;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=Luxurious%20jewelry%20showroom%20with%20elegant%20display%20of%20diamonds%2C%20emeralds%20and%20gold%20jewelry.%20Soft%20golden%20lighting%2C%20plush%20velvet%20displays.%20Left%20side%20has%20soft%20gradient%20to%20white%20for%20text%20overlay.%20Professional%20high-end%20jewelry%20photography%20with%20bokeh%20effect&width=1600&height=800&seq=jewelry1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.hero-overlay {
+background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+}
+.auction-timer {
+background: linear-gradient(135deg, #9f7a49 0%, #d4af37 100%);
+}
+.mystery-box {
+background: linear-gradient(135deg, #2c3e50 0%, #4a6b8a 100%);
+}
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: #9f7a49;
+}
+.custom-checkbox {
+position: relative;
+padding-left: 28px;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 1px solid #9f7a49;
+border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+background-color: #f9f5f0;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #9f7a49;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 7px;
+top: 3px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 16px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #9f7a49;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+.product-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.product-card {
+transition: all 0.3s ease;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- 顶部导航 -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-95 shadow-sm">
+<div class="container mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">logo</a>
+</div>
+<nav class="hidden md:flex items-center space-x-6">
+<a href="/" id="homeLink" class="text-gray-800 hover:text-primary font-medium">首页</a>
+<a href="#comprehensive" class="text-gray-800 hover:text-primary font-medium">综合展示</a>
+<a href="#products" class="text-gray-800 hover:text-primary font-medium">产品商城</a>
+<a href="#auction" class="text-gray-800 hover:text-primary font-medium">拍卖专区</a>
+<a href="#mystery" class="text-gray-800 hover:text-primary font-medium">盲盒活动</a>
+<a href="#appraisal" class="text-gray-800 hover:text-primary font-medium">鉴定服务</a>
+<a href="#about" class="text-gray-800 hover:text-primary font-medium">关于我们</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<input type="text" placeholder="搜索珠宝..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 text-sm focus:border-primary">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 cursor-pointer relative">
+<i class="ri-shopping-cart-2-line text-gray-700"></i>
+<span class="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center bg-primary text-white text-xs rounded-full">3</span>
+</div>
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 cursor-pointer">
+<i class="ri-user-line text-gray-700"></i>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero 区域 -->
+<section class="hero-section pt-24 relative">
+<div class="hero-overlay absolute inset-0"></div>
+<div class="container mx-auto px-4 py-20 relative z-10">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">臻品珠宝，匠心独运</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8">探索原石到臻品的蜕变之旅，感受珠宝艺术的非凡魅力。每一件作品都是大自然与匠心的完美结合，为您带来永恒的价值与美丽。</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">探索臻品</button>
+<button class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition whitespace-nowrap">预约鉴定</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 综合展示区 -->
+<section id="comprehensive" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">原石蜕变 · 臻品呈现</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">每一件珠宝都有其独特的前世今生，从粗糙原石到璀璨臻品，我们记录每一个精彩瞬间</p>
+</div>
+<div class="mb-8 flex flex-wrap justify-center gap-4">
+<button class="px-4 py-2 rounded-full bg-primary text-white whitespace-nowrap">全部展示</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">钻石系列</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">翡翠玉石</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">彩色宝石</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">珍珠系列</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- 展示卡片 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Raw%20uncut%20diamond%20next%20to%20a%20beautifully%20cut%20and%20polished%20diamond%20on%20black%20velvet%20background.%20Professional%20jewelry%20photography%20with%20dramatic%20lighting%20showing%20the%20transformation%20from%20rough%20to%20brilliant&width=600&height=400&seq=jewelry2&orientation=landscape" alt="钻石原石到成品" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-primary text-white text-xs px-2 py-1 rounded">钻石系列</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">非洲原石 · 璀璨新生</h3>
+<p class="text-gray-600 mb-4">来自南非的 3.7 克拉原石，经过 37 道工序，蜕变为 1.53 克拉的 D 色 VVS1 净度钻石，火彩绝伦。</p>
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">2025-06-28 完成</span>
+<button class="text-primary flex items-center hover:underline whitespace-nowrap">
+了解更多
+<i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 展示卡片 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Raw%20emerald%20crystal%20next%20to%20a%20beautifully%20cut%20emerald%20gemstone%20on%20dark%20velvet.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20showing%20the%20transformation%20from%20rough%20to%20polished%20gem&width=600&height=400&seq=jewelry3&orientation=landscape" alt="祖母绿原石到成品" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-primary text-white text-xs px-2 py-1 rounded">彩色宝石</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">哥伦比亚祖母绿 · 翠绿传奇</h3>
+<p class="text-gray-600 mb-4">产自哥伦比亚穆索矿区的 5.2 克拉原石，经精细切割与抛光，成就 2.8 克拉顶级祖母绿，色泽浓郁如油。</p>
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">2025-07-01 完成</span>
+<button class="text-primary flex items-center hover:underline whitespace-nowrap">
+了解更多
+<i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 展示卡片 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Raw%20jade%20stone%20next%20to%20a%20beautifully%20carved%20jade%20bracelet%20on%20silk%20fabric.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20showing%20the%20transformation%20from%20rough%20to%20finished%20jewelry%20piece&width=600&height=400&seq=jewelry4&orientation=landscape" alt="翡翠原石到成品" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-primary text-white text-xs px-2 py-1 rounded">翡翠玉石</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">缅甸翡翠 · 冰种飘花</h3>
+<p class="text-gray-600 mb-4">缅甸北部矿区的优质原石，历经 45 天精雕细琢，成就一件冰种飘花手镯，通透剔透，花色自然灵动。</p>
+<div class="flex items-center justify-between">
+<span class="text-sm text-gray-500">2025-06-15 完成</span>
+<button class="text-primary flex items-center hover:underline whitespace-nowrap">
+了解更多
+<i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition flex items-center mx-auto whitespace-nowrap">
+查看更多展示
+<i class="ri-arrow-down-line ml-2"></i>
+</button>
+</div>
+</div>
+</section>
+<!-- 产品售卖区 -->
+<section id="products" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">臻品珍藏 · 璀璨典藏</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">每一件珠宝都经过严格筛选与精心设计，为您提供最优质的珠宝臻品</p>
+</div>
+<div class="flex flex-wrap justify-between items-center mb-10">
+<div class="flex flex-wrap gap-4 mb-4 md:mb-0">
+<button class="px-4 py-2 rounded-full bg-primary text-white whitespace-nowrap">全部商品</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">戒指</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">项链</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">手链</button>
+<button class="px-4 py-2 rounded-full border border-gray-300 hover:border-primary hover:text-primary whitespace-nowrap">耳饰</button>
+</div>
+<div class="flex items-center">
+<span class="text-gray-600 mr-2">价格</span>
+<select class="border border-gray-300 rounded px-3 py-2 focus:border-primary pr-8">
+<option>全部价格</option>
+<option>¥5,000 以下</option>
+<option>¥5,000 - ¥20,000</option>
+<option>¥20,000 - ¥50,000</option>
+<option>¥50,000 以上</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- 产品卡片 1 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20diamond%20engagement%20ring%20with%20center%20stone%20on%20white%20background.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20and%20perfect%20focus%20on%20the%20brilliant%20cut%20diamond&width=500&height=500&seq=jewelry5&orientation=squarish" alt="钻石戒指" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded">限时优惠</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「星辰」18K金钻石戒指</h3>
+<p class="text-gray-600 text-sm mb-2">1.2克拉 D色 VS1 GIA证书</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥38,600</span>
+<span class="text-gray-400 line-through text-sm ml-2">¥42,800</span>
+</div>
+<span class="text-xs text-gray-500">已售 28</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 2 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20emerald%20necklace%20with%20diamond%20accents%20on%20black%20background.%20Professional%20jewelry%20photography%20with%20dramatic%20lighting%20highlighting%20the%20deep%20green%20color%20of%20the%20emerald&width=500&height=500&seq=jewelry6&orientation=squarish" alt="祖母绿项链" class="w-full h-64 object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「森林女神」祖母绿钻石项链</h3>
+<p class="text-gray-600 text-sm mb-2">2.5克拉哥伦比亚祖母绿 18K金</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥68,900</span>
+</div>
+<span class="text-xs text-gray-500">已售 12</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 3 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20jade%20bangle%20bracelet%20on%20silk%20fabric.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20translucent%20green%20color%20and%20texture%20of%20the%20jade&width=500&height=500&seq=jewelry7&orientation=squarish" alt="翡翠手镯" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-primary text-white text-xs px-2 py-1 rounded">新品</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「冰清玉洁」缅甸冰种翡翠手镯</h3>
+<p class="text-gray-600 text-sm mb-2">内径57mm 种水俱佳 证书齐全</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥128,000</span>
+</div>
+<span class="text-xs text-gray-500">已售 5</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 4 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20pearl%20earrings%20with%20diamond%20accents%20on%20white%20background.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20luster%20of%20the%20pearls&width=500&height=500&seq=jewelry8&orientation=squarish" alt="珍珠耳环" class="w-full h-64 object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「海之泪」南洋金珠钻石耳环</h3>
+<p class="text-gray-600 text-sm mb-2">11-12mm 天然金珠 18K金镶钻</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥22,800</span>
+</div>
+<span class="text-xs text-gray-500">已售 19</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 5 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20ruby%20and%20diamond%20bracelet%20on%20black%20velvet.%20Professional%20jewelry%20photography%20with%20dramatic%20lighting%20highlighting%20the%20deep%20red%20color%20of%20the%20rubies&width=500&height=500&seq=jewelry9&orientation=squarish" alt="红宝石手链" class="w-full h-64 object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「赤焰」缅甸红宝石钻石手链</h3>
+<p class="text-gray-600 text-sm mb-2">5颗共3.8克拉鸽血红宝石 18K金</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥86,500</span>
+</div>
+<span class="text-xs text-gray-500">已售 7</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 6 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20sapphire%20ring%20with%20diamond%20halo%20on%20white%20background.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20deep%20blue%20color%20of%20the%20sapphire&width=500&height=500&seq=jewelry10&orientation=squarish" alt="蓝宝石戒指" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded">限量</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「蓝海之心」皇家蓝宝石戒指</h3>
+<p class="text-gray-600 text-sm mb-2">3.1克拉斯里兰卡蓝宝石 铂金镶钻</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥76,800</span>
+</div>
+<span class="text-xs text-gray-500">已售 3</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 7 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20turquoise%20and%20silver%20pendant%20necklace%20on%20white%20background.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20blue%20color%20and%20texture%20of%20the%20turquoise&width=500&height=500&seq=jewelry11&orientation=squarish" alt="绿松石项链" class="w-full h-64 object-cover object-top">
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「天空之境」高瓷蓝绿松石项链</h3>
+<p class="text-gray-600 text-sm mb-2">顶级高瓷蓝绿松石 925银镶嵌</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥6,980</span>
+</div>
+<span class="text-xs text-gray-500">已售 32</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- 产品卡片 8 -->
+<div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20amber%20pendant%20with%20silver%20details%20on%20beige%20background.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20warm%20golden%20color%20and%20inclusions%20in%20the%20amber&width=500&height=500&seq=jewelry12&orientation=squarish" alt="琥珀吊坠" class="w-full h-64 object-cover object-top">
+<div class="absolute top-4 right-4 bg-primary text-white text-xs px-2 py-1 rounded">新品</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-bold mb-1">「时光琥珀」波罗的海蜜蜡吊坠</h3>
+<p class="text-gray-600 text-sm mb-2">15.6克天然蜜蜡 925银雕花</p>
+<div class="flex justify-between items-center mb-3">
+<div>
+<span class="text-primary font-bold text-xl">¥9,800</span>
+</div>
+<span class="text-xs text-gray-500">已售 15</span>
+</div>
+<div class="flex space-x-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-button text-sm font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-button hover:border-primary hover:text-primary transition">
+<i class="ri-shopping-cart-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition flex items-center mx-auto whitespace-nowrap">
+查看更多商品
+<i class="ri-arrow-down-line ml-2"></i>
+</button>
+</div>
+</div>
+</section>
+<!-- 拍卖专区 -->
+<section id="auction" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">臻品拍卖 · 稀世珍宝</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">每一件拍品都经过严格筛选与专业鉴定，为您提供收藏与投资的绝佳机会</p>
+</div>
+<div class="mb-10 flex justify-center">
+<div class="inline-flex bg-white rounded-full p-1 shadow-sm">
+<button class="px-6 py-2 rounded-full bg-primary text-white whitespace-nowrap">正在拍卖</button>
+<button class="px-6 py-2 rounded-full text-gray-700 hover:bg-gray-100 whitespace-nowrap">即将开拍</button>
+<button class="px-6 py-2 rounded-full text-gray-700 hover:bg-gray-100 whitespace-nowrap">历史拍卖</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- 拍卖卡片 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Exquisite%20large%20uncut%20diamond%20on%20black%20velvet%20with%20dramatic%20lighting.%20Professional%20jewelry%20photography%20highlighting%20the%20natural%20crystal%20structure%20and%20potential%20of%20the%20rough%20diamond&width=600&height=400&seq=jewelry13&orientation=landscape" alt="钻石原石" class="w-full h-64 object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 auction-timer text-white p-3 flex justify-between items-center">
+<span class="font-bold">剩余时间</span>
+<div class="flex space-x-2">
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">12</span>
+</div>
+<span>:</span>
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">45</span>
+</div>
+<span>:</span>
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">33</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">非洲顶级钻石原石（88.7克拉）</h3>
+<p class="text-gray-600 mb-4">产自博茨瓦纳的优质钻石原石，纯净度高，预计可切割出30+克拉主石。</p>
+<div class="flex justify-between items-center mb-4">
+<div>
+<div class="text-sm text-gray-500">起拍价</div>
+<div class="text-primary font-bold text-xl">¥2,680,000</div>
+</div>
+<div>
+<div class="text-sm text-gray-500">当前价</div>
+<div class="text-red-600 font-bold text-xl">¥3,250,000</div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-gray-500">参与竞拍：32人</span>
+<button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">参与竞拍</button>
+</div>
+</div>
+</div>
+<!-- 拍卖卡片 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Exquisite%20antique%20ruby%20and%20diamond%20necklace%20on%20black%20velvet%20with%20dramatic%20lighting.%20Professional%20jewelry%20photography%20highlighting%20the%20deep%20red%20color%20of%20the%20rubies%20and%20sparkle%20of%20diamonds&width=600&height=400&seq=jewelry14&orientation=landscape" alt="红宝石项链" class="w-full h-64 object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 auction-timer text-white p-3 flex justify-between items-center">
+<span class="font-bold">剩余时间</span>
+<div class="flex space-x-2">
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">08</span>
+</div>
+<span>:</span>
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">23</span>
+</div>
+<span>:</span>
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">59</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">法国古董红宝石钻石项链（1920年代）</h3>
+<p class="text-gray-600 mb-4">Art Deco风格，中心5.2克拉缅甸鸽血红宝石，周围镶嵌老式切工钻石。</p>
+<div class="flex justify-between items-center mb-4">
+<div>
+<div class="text-sm text-gray-500">起拍价</div>
+<div class="text-primary font-bold text-xl">¥1,200,000</div>
+</div>
+<div>
+<div class="text-sm text-gray-500">当前价</div>
+<div class="text-red-600 font-bold text-xl">¥1,580,000</div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-gray-500">参与竞拍：18人</span>
+<button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">参与竞拍</button>
+</div>
+</div>
+</div>
+<!-- 拍卖卡片 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Exquisite%20imperial%20jade%20bangle%20bracelet%20on%20silk%20fabric%20with%20soft%20lighting.%20Professional%20jewelry%20photography%20highlighting%20the%20translucent%20emerald%20green%20color%20and%20texture%20of%20the%20highest%20quality%20jade&width=600&height=400&seq=jewelry15&orientation=landscape" alt="帝王绿翡翠手镯" class="w-full h-64 object-cover object-top">
+<div class="absolute bottom-0 left-0 right-0 auction-timer text-white p-3 flex justify-between items-center">
+<span class="font-bold">剩余时间</span>
+<div class="flex space-x-2">
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">24</span>
+</div>
+<span>:</span>
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">10</span>
+</div>
+<span>:</span>
+<div class="bg-white bg-opacity-20 rounded px-2 py-1">
+<span class="font-mono">05</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">缅甸帝王绿翡翠手镯（满绿）</h3>
+<p class="text-gray-600 mb-4">内径56mm，种水极佳，满绿色泽，通透度高，玻璃光泽，带国检证书。</p>
+<div class="flex justify-between items-center mb-4">
+<div>
+<div class="text-sm text-gray-500">起拍价</div>
+<div class="text-primary font-bold text-xl">¥3,800,000</div>
+</div>
+<div>
+<div class="text-sm text-gray-500">当前价</div>
+<div class="text-red-600 font-bold text-xl">¥4,650,000</div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-gray-500">参与竞拍：26人</span>
+<button class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">参与竞拍</button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition flex items-center mx-auto whitespace-nowrap">
+查看更多拍品
+<i class="ri-arrow-down-line ml-2"></i>
+</button>
+</div>
+</div>
+</section>
+<!-- 盲盒区域 -->
+<section id="mystery" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">臻品盲盒 · 惊喜连连</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">每一个盲盒都蕴含着独特的珠宝惊喜，以超值价格体验开盒的乐趣</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- 盲盒展示 -->
+<div class="w-full lg:w-2/3">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20jewelry%20mystery%20box%20with%20golden%20lid%20slightly%20open%20revealing%20sparkling%20jewelry%20inside.%20Professional%20product%20photography%20with%20dramatic%20lighting%20on%20dark%20background&width=800&height=500&seq=jewelry16&orientation=landscape" alt="珠宝盲盒" class="w-full h-80 object-cover object-top">
+<div class="absolute top-4 right-4 mystery-box text-white text-sm px-3 py-1 rounded-full">
+今日限量 50 盒
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-2xl font-bold">7月幸运臻宝盲盒</h3>
+<div class="flex items-center">
+<span class="text-primary font-bold text-2xl">¥1,999</span>
+<span class="text-gray-400 line-through text-sm ml-2">价值 ¥3,000-20,000</span>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">今日剩余</span>
+<span class="text-primary font-medium">23 盒</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 46%"></div>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="text-lg font-bold mb-3">盲盒内容物概率</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex justify-between">
+<span class="text-gray-600">钻石首饰</span>
+<span class="text-primary">5%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">彩宝首饰</span>
+<span class="text-primary">15%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">翡翠玉石</span>
+<span class="text-primary">10%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">珍珠首饰</span>
+<span class="text-primary">20%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">18K金首饰</span>
+<span class="text-primary">30%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">925银首饰</span>
+<span class="text-primary">20%</span>
+</div>
+</div>
+</div>
+<div class="flex space-x-4">
+<button class="flex-1 bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即购买</button>
+<button class="flex-1 border border-primary text-primary py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition whitespace-nowrap">查看详情</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 开盒记录 -->
+<div class="w-full lg:w-1/3">
+<div class="bg-white rounded-lg shadow-md p-6 h-full">
+<h3 class="text-xl font-bold mb-4 flex items-center">
+<i class="ri-award-line mr-2 text-primary"></i>
+幸运开盒记录
+</h3>
+<div class="space-y-4 mb-6">
+<div class="flex items-center p-3 border-b border-gray-100">
+<div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mr-3">
+<i class="ri-user-line"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium">林小姐</span>
+<span class="text-xs text-gray-500">10分钟前</span>
+</div>
+<p class="text-sm text-gray-600">开出 1.2克拉钻石项链，价值¥18,600</p>
+</div>
+</div>
+<div class="flex items-center p-3 border-b border-gray-100">
+<div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mr-3">
+<i class="ri-user-line"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium">王先生</span>
+<span class="text-xs text-gray-500">25分钟前</span>
+</div>
+<p class="text-sm text-gray-600">开出 和田玉手镯，价值¥8,800</p>
+</div>
+</div>
+<div class="flex items-center p-3 border-b border-gray-100">
+<div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mr-3">
+<i class="ri-user-line"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium">陈女士</span>
+<span class="text-xs text-gray-500">42分钟前</span>
+</div>
+<p class="text-sm text-gray-600">开出 南洋珍珠耳环，价值¥5,200</p>
+</div>
+</div>
+<div class="flex items-center p-3 border-b border-gray-100">
+<div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mr-3">
+<i class="ri-user-line"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium">张先生</span>
+<span class="text-xs text-gray-500">1小时前</span>
+</div>
+<p class="text-sm text-gray-600">开出 红宝石戒指，价值¥12,500</p>
+</div>
+</div>
+<div class="flex items-center p-3 border-b border-gray-100">
+<div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 mr-3">
+<i class="ri-user-line"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<span class="font-medium">刘女士</span>
+<span class="text-xs text-gray-500">1小时前</span>
+</div>
+<p class="text-sm text-gray-600">开出 18K金手链，价值¥6,800</p>
+</div>
+</div>
+</div>
+<button class="w-full text-primary text-sm hover:underline flex items-center justify-center whitespace-nowrap">
+查看更多记录
+<i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-16">
+<h3 class="text-2xl font-bold mb-8 text-center">往期盲盒精彩回顾</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20diamond%20pendant%20necklace%20on%20black%20background.%20Professional%20jewelry%20photography%20with%20dramatic%20lighting%20highlighting%20the%20sparkle%20of%20the%20diamond&width=400&height=300&seq=jewelry17&orientation=landscape" alt="钻石项链" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-bold">6月幸运盲盒</h4>
+<span class="text-xs text-primary">已售罄</span>
+</div>
+<p class="text-sm text-gray-600 mb-2">钻石项链 · 特等奖</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">¥16,800</span>
+<span class="text-xs text-gray-500">获奖率：2%</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20emerald%20earrings%20on%20black%20background.%20Professional%20jewelry%20photography%20with%20dramatic%20lighting%20highlighting%20the%20deep%20green%20color%20of%20the%20emeralds&width=400&height=300&seq=jewelry18&orientation=landscape" alt="祖母绿耳环" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-bold">5月幸运盲盒</h4>
+<span class="text-xs text-primary">已售罄</span>
+</div>
+<p class="text-sm text-gray-600 mb-2">祖母绿耳环 · 特等奖</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">¥12,500</span>
+<span class="text-xs text-gray-500">获奖率：3%</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20jade%20pendant%20on%20silk%20fabric.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20translucent%20green%20color%20and%20texture%20of%20the%20jade&width=400&height=300&seq=jewelry19&orientation=landscape" alt="翡翠吊坠" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-bold">4月幸运盲盒</h4>
+<span class="text-xs text-primary">已售罄</span>
+</div>
+<p class="text-sm text-gray-600 mb-2">翡翠吊坠 · 特等奖</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">¥22,000</span>
+<span class="text-xs text-gray-500">获奖率：1%</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Elegant%20pearl%20and%20diamond%20bracelet%20on%20white%20background.%20Professional%20jewelry%20photography%20with%20soft%20lighting%20highlighting%20the%20luster%20of%20the%20pearls%20and%20sparkle%20of%20diamonds&width=400&height=300&seq=jewelry20&orientation=landscape" alt="珍珠手链" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-bold">3月幸运盲盒</h4>
+<span class="text-xs text-primary">已售罄</span>
+</div>
+<p class="text-sm text-gray-600 mb-2">珍珠钻石手链 · 特等奖</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">¥9,800</span>
+<span class="text-xs text-gray-500">获奖率：5%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 鉴定估值区 -->
+<section id="appraisal" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">专业鉴定 · 精准估值</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">由资深珠宝鉴定师为您的珠宝提供专业鉴定与市场估值，让珠宝价值更透明</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-10">
+<!-- 鉴定流程 -->
+<div class="w-full lg:w-1/2">
+<h3 class="text-2xl font-bold mb-6">鉴定服务流程</h3>
+<div class="space-y-6">
+<div class="flex">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0">1</div>
+<div>
+<h4 class="text-lg font-bold mb-2">在线预约</h4>
+<p class="text-gray-600">填写鉴定申请表，选择合适的时间和服务类型，我们将安排专业鉴定师为您服务。</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0">2</div>
+<div>
+<h4 class="text-lg font-bold mb-2">送检或上门</h4>
+<p class="text-gray-600">您可以选择将珠宝送至我们的鉴定中心，或预约专业鉴定师上门服务（仅限特定区域）。</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0">3</div>
+<div>
+<h4 class="text-lg font-bold mb-2">专业鉴定</h4>
+<p class="text-gray-600">我们的鉴定师将使用先进设备对您的珠宝进行全面检测，确定材质、真伪、品质等级等。</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0">4</div>
+<div>
+<h4 class="text-lg font-bold mb-2">市场估值</h4>
+<p class="text-gray-600">根据鉴定结果和当前市场行情，为您的珠宝提供专业的市场价值评估。</p>
+</div>
+</div>
+<div class="flex">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4 shrink-0">5</div>
+<div>
+<h4 class="text-lg font-bold mb-2">出具证书</h4>
+<p class="text-gray-600">为您的珠宝出具专业鉴定证书和估值报告，可用于保险、交易或收藏凭证。</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">立即预约</button>
+<button class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition whitespace-nowrap">了解更多</button>
+</div>
+</div>
+<!-- 预约表单 -->
+<div class="w-full lg:w-1/2">
+<div class="bg-white rounded-lg shadow-md p-8">
+<h3 class="text-2xl font-bold mb-6">鉴定服务预约</h3>
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="block text-gray-700 mb-2">姓名</label>
+<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary text-sm" placeholder="请输入您的姓名">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">联系电话</label>
+<input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary text-sm" placeholder="请输入您的联系电话">
+</div>
+<div class="md:col-span-2">
+<label class="block text-gray-700 mb-2">珠宝类型</label>
+<select class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary text-sm pr-8">
+<option>请选择珠宝类型</option>
+<option>钻石</option>
+<option>彩色宝石</option>
+<option>翡翠玉石</option>
+<option>珍珠</option>
+<option>金银首饰</option>
+<option>其他</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="block text-gray-700 mb-2">服务类型</label>
+<div class="flex flex-wrap gap-4">
+<label class="custom-checkbox">
+真伪鉴定
+<input type="checkbox" checked>
+<span class="checkmark"></span>
+</label>
+<label class="custom-checkbox">
+品质评级
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="custom-checkbox">
+市场估值
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<label class="custom-checkbox">
+出具证书
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-gray-700 mb-2">预约日期</label>
+<input type="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary text-sm" min="2025-07-07">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">预约时段</label>
+<select class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary text-sm pr-8">
+<option>请选择时间段</option>
+<option>上午 (10:00-12:00)</option>
+<option>下午 (14:00-16:00)</option>
+<option>傍晚 (16:00-18:00)</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="block text-gray-700 mb-2">服务方式</label>
+<div class="flex items-center space-x-6">
+<label class="custom-checkbox">
+到店鉴定
+<input type="radio" name="service-type" checked>
+<span class="checkmark"></span>
+</label>
+<label class="custom-checkbox">
+上门服务
+<input type="radio" name="service-type">
+<span class="checkmark"></span>
+</label>
+</div>
+</div>
+<div class="md:col-span-2">
+<label class="block text-gray-700 mb-2">备注信息</label>
+<textarea class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary text-sm" rows="3" placeholder="请描述您的珠宝情况或其他需求..."></textarea>
+</div>
+</div>
+<div class="flex items-center mb-6">
+<label class="custom-switch mr-3">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+<span class="text-sm text-gray-600">我同意接收相关服务信息和优惠通知</span>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">提交预约</button>
+</form>
+</div>
+</div>
+</div>
+<div class="mt-20">
+<h3 class="text-2xl font-bold mb-8 text-center">我们的鉴定专家团队</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20female%20jewelry%20appraiser%20in%20formal%20attire%20examining%20a%20diamond%20with%20loupe.%20Studio%20portrait%20with%20neutral%20background%2C%20professional%20lighting&width=400&height=400&seq=jewelry21&orientation=squarish" alt="鉴定专家" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1">张雅琴</h4>
+<p class="text-primary text-sm mb-2">首席钻石鉴定师</p>
+<p class="text-sm text-gray-600">GIA认证钻石分级师，20年钻石鉴定经验，曾任国际知名珠宝品牌鉴定总监。</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20male%20jewelry%20appraiser%20in%20formal%20attire%20examining%20a%20jade%20with%20specialized%20equipment.%20Studio%20portrait%20with%20neutral%20background%2C%20professional%20lighting&width=400&height=400&seq=jewelry22&orientation=squarish" alt="鉴定专家" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1">李明德</h4>
+<p class="text-primary text-sm mb-2">翡翠鉴定专家</p>
+<p class="text-sm text-gray-600">国家一级玉石鉴定师，专注翡翠鉴定30年，著有《翡翠鉴赏与收藏》等专业著作。</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20female%20jewelry%20appraiser%20in%20formal%20attire%20examining%20a%20colored%20gemstone%20with%20specialized%20equipment.%20Studio%20portrait%20with%20neutral%20background%2C%20professional%20lighting&width=400&height=400&seq=jewelry23&orientation=squarish" alt="鉴定专家" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1">陈慧珊</h4>
+<p class="text-primary text-sm mb-2">彩宝鉴定专家</p>
+<p class="text-sm text-gray-600">瑞士宝石学院(SSEF)认证宝石学家，专注红蓝宝石、祖母绿等彩色宝石鉴定与评级。</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20male%20jewelry%20appraiser%20in%20formal%20attire%20examining%20a%20pearl%20necklace%20with%20specialized%20equipment.%20Studio%20portrait%20with%20neutral%20background%2C%20professional%20lighting&width=400&height=400&seq=jewelry24&orientation=squarish" alt="鉴定专家" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1">王俊杰</h4>
+<p class="text-primary text-sm mb-2">珍珠鉴定专家</p>
+<p class="text-sm text-gray-600">日本真珠科学研究所(JPSI)认证专家，擅长各类珍珠鉴定与品质评级，市场估值。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 公司实力展示 -->
+<section id="about" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">品牌实力 · 匠心传承</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">二十年专注高端珠宝定制与鉴赏，以卓越品质与专业服务赢得广大客户信赖</p>
+</div>
+<!-- 品牌历史 -->
+<div class="mb-20">
+<h3 class="text-2xl font-bold mb-8 text-center">品牌发展历程</h3>
+<div class="relative">
+<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+<div class="space-y-12">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<h4 class="text-xl font-bold mb-2">2005年</h4>
+<p class="text-gray-600">品牌创立，在北京开设首家珠宝定制工作室，专注高端钻石首饰定制。</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10 mx-4">
+<i class="ri-flag-line"></i>
+</div>
+<div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+</div>
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10 mx-4">
+<i class="ri-store-line"></i>
+</div>
+<div class="md:w-1/2 md:pl-12 mb-4 md:mb-0">
+<h4 class="text-xl font-bold mb-2">2010年</h4>
+<p class="text-gray-600">业务扩展至彩色宝石与翡翠领域，在上海、广州开设分店，建立专业珠宝鉴定中心。</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<h4 class="text-xl font-bold mb-2">2015年</h4>
+<p class="text-gray-600">获得国际珠宝设计大赛金奖，与多家国际知名珠宝供应商建立战略合作关系。</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10 mx-4">
+<i class="ri-award-line"></i>
+</div>
+<div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+</div>
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10 mx-4">
+<i class="ri-global-line"></i>
+</div>
+<div class="md:w-1/2 md:pl-12 mb-4 md:mb-0">
+<h4 class="text-xl font-bold mb-2">2020年</h4>
+<p class="text-gray-600">线上业务全面升级，推出珠宝拍卖与盲盒创新模式，服务范围扩展至全国主要城市。</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<h4 class="text-xl font-bold mb-2">2025年</h4>
+<p class="text-gray-600">成立珠宝设计学院，引进国际顶级设计师团队，推出更多原创设计系列，品牌影响力持续提升。</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10 mx-4">
+<i class="ri-graduation-cap-line"></i>
+</div>
+<div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 荣誉与认证 -->
+<div class="mb-20">
+<h3 class="text-2xl font-bold mb-8 text-center">荣誉与认证</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-md p-6 text-center">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+<i class="ri-medal-line"></i>
+</div>
+<h4 class="font-bold mb-2">国家珠宝玉石质量检测中心认证</h4>
+<p class="text-sm text-gray-600">国家级珠宝检测资质</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6 text-center">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+<i class="ri-award-line"></i>
+</div>
+<h4 class="font-bold mb-2">国际珠宝设计大赛金奖</h4>
+<p class="text-sm text-gray-600">连续三年获得设计大奖</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6 text-center">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+<i class="ri-shield-check-line"></i>
+</div>
+<h4 class="font-bold mb-2">ISO9001质量管理体系认证</h4>
+<p class="text-sm text-gray-600">国际标准质量管理</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6 text-center">
+<div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+<i class="ri-customer-service-line"></i>
+</div>
+<h4 class="font-bold mb-2">五星级客户满意度认证</h4>
+<p class="text-sm text-gray-600">行业顶级服务标准</p>
+</div>
+</div>
+</div>
+<!-- 实体店铺展示 -->
+<div class="mb-20">
+<h3 class="text-2xl font-bold mb-8 text-center">全国实体店铺</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Luxurious%20jewelry%20store%20interior%20with%20elegant%20displays%2C%20soft%20lighting%2C%20and%20high-end%20decor.%20Professional%20retail%20photography%20showing%20a%20modern%20upscale%20jewelry%20boutique%20in%20Beijing&width=600&height=400&seq=jewelry25&orientation=landscape" alt="北京旗舰店" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-2">北京国贸旗舰店</h4>
+<p class="text-sm text-gray-600 mb-3">北京市朝阳区建国门外大街1号国贸商城三期L1层</p>
+<div class="flex items-center text-sm text-gray-600">
+<i class="ri-phone-line mr-2 text-primary"></i>
+010-8888-7777
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Luxurious%20jewelry%20store%20interior%20with%20elegant%20displays%2C%20soft%20lighting%2C%20and%20high-end%20decor.%20Professional%20retail%20photography%20showing%20a%20modern%20upscale%20jewelry%20boutique%20in%20Shanghai&width=600&height=400&seq=jewelry26&orientation=landscape" alt="上海旗舰店" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-2">上海恒隆广场店</h4>
+<p class="text-sm text-gray-600 mb-3">上海市静安区南京西路1266号恒隆广场LG2层</p>
+<div class="flex items-center text-sm text-gray-600">
+<i class="ri-phone-line mr-2 text-primary"></i>
+021-6666-5555
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Luxurious%20jewelry%20store%20interior%20with%20elegant%20displays%2C%20soft%20lighting%2C%20and%20high-end%20decor.%20Professional%20retail%20photography%20showing%20a%20modern%20upscale%20jewelry%20boutique%20in%20Guangzhou&width=600&height=400&seq=jewelry27&orientation=landscape" alt="广州旗舰店" class="w-full h-48 object-cover object-top">
+<div class="p-4">
+<h4 class="font-bold text-lg mb-2">广州太古汇店</h4>
+<p class="text-sm text-gray-600 mb-3">广州市天河区天河路383号太古汇商场L2层</p>
+<div class="flex items-center text-sm text-gray-600">
+<i class="ri-phone-line mr-2 text-primary"></i>
+020-3333-2222
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<button class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-10 transition whitespace-nowrap">
+查看全部门店
+</button>
+</div>
+</div>
+<!-- 设计师推荐 -->
+<div>
+<h3 class="text-2xl font-bold mb-8 text-center">臻品设计师</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20female%20jewelry%20designer%20in%20elegant%20attire%20working%20on%20jewelry%20design%20at%20desk%20with%20sketches%20and%20materials.%20Studio%20portrait%20with%20soft%20lighting&width=400&height=500&seq=jewelry28&orientation=portrait" alt="首席设计师" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+<div class="p-6 flex-1">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-xl mb-1">林雨晴</h4>
+<p class="text-primary text-sm">首席珠宝设计师</p>
+</div>
+<div class="flex space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-weibo-line"></i>
+</div>
+<div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-instagram-line"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-600 mb-4">中央美术学院珠宝设计专业毕业，曾在意大利学习珠宝设计，擅长将东方美学与现代设计理念融合，作品多次获得国际设计大奖。</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">钻石系列</span>
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">彩宝设计</span>
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">婚戒定制</span>
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">东方美学</span>
+</div>
+<button class="text-primary flex items-center hover:underline whitespace-nowrap">
+查看设计作品
+<i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Asian%20male%20jewelry%20designer%20in%20elegant%20attire%20examining%20gemstones%20with%20loupe.%20Studio%20portrait%20with%20soft%20lighting%20showing%20attention%20to%20detail&width=400&height=500&seq=jewelry29&orientation=portrait" alt="高级设计师" class="w-full md:w-1/3 h-64 md:h-auto object-cover object-top">
+<div class="p-6 flex-1">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-xl mb-1">陈志远</h4>
+<p class="text-primary text-sm">高级珠宝设计师</p>
+</div>
+<div class="flex space-x-2">
+<div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-weibo-line"></i>
+</div>
+<div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200">
+<i class="ri-instagram-line"></i>
+</div>
+</div>
+</div>
+<p class="text-gray-600 mb-4">香港理工大学珠宝设计硕士，GIA宝石学家，擅长翡翠玉石与彩色宝石设计，作品融合传统与现代元素，深受收藏家喜爱。</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">翡翠设计</span>
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">彩宝系列</span>
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">男士珠宝</span>
+<span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">现代艺术</span>
+</div>
+<button class="text-primary flex items-center hover:underline whitespace-nowrap">
+查看设计作品
+<i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI 算命风水区域 -->
+<section class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">AI 智能 · 运势解析</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">结合传统玄学与现代 AI 技术，为您提供个性化的运势分析与珠宝佩戴建议</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+<!-- AI 算命区域 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Mystical%20fortune%20telling%20scene%20with%20crystal%20ball%2C%20tarot%20cards%2C%20and%20modern%20digital%20elements.%20Professional%20photography%20with%20dramatic%20lighting%20and%20magical%20atmosphere&width=800&height=400&seq=fortune1&orientation=landscape" alt="AI 算命" class="w-full h-64 object-cover object-top">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<h3 class="text-2xl font-bold text-white">AI 运势解析</h3>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<p class="text-gray-600 mb-4">通过 AI 智能分析系统，结合您的生辰八字、面相特征，为您提供专业的运势分析与珠宝佩戴建议。</p>
+<div class="space-y-4">
+<div class="flex items-center">
+<i class="ri-magic-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">运势综合分析</span>
+</div>
+<div class="flex items-center">
+<i class="ri-heart-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">姻缘桃花分析</span>
+</div>
+<div class="flex items-center">
+<i class="ri-money-cny-circle-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">财运事业分析</span>
+</div>
+<div class="flex items-center">
+<i class="ri-gem-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">珠宝佩戴建议</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">开始测算</button>
+</div>
+</div>
+<!-- AI 风水区域 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=Modern%20feng%20shui%20consultation%20scene%20with%20compass%2C%20crystals%2C%20and%20digital%20devices.%20Professional%20photography%20with%20balanced%20composition%20and%20serene%20atmosphere&width=800&height=400&seq=fortune2&orientation=landscape" alt="AI 风水" class="w-full h-64 object-cover object-top">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<h3 class="text-2xl font-bold text-white">AI 风水顾问</h3>
+</div>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<p class="text-gray-600 mb-4">运用 AI 智能分析技术，为您的居家、办公环境提供专业的风水布局建议，助您趋吉避凶。</p>
+<div class="space-y-4">
+<div class="flex items-center">
+<i class="ri-compass-3-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">空间风水分析</span>
+</div>
+<div class="flex items-center">
+<i class="ri-home-smile-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">家居布局建议</span>
+</div>
+<div class="flex items-center">
+<i class="ri-building-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">办公环境优化</span>
+</div>
+<div class="flex items-center">
+<i class="ri-crystal-line text-primary text-xl mr-3"></i>
+<span class="text-gray-700">饰品摆放指导</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition whitespace-nowrap">开始咨询</button>
+</div>
+</div>
+</div>
+<!-- AI 解析案例 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20young%20Asian%20woman%20with%20confident%20expression.%20Studio%20portrait%20with%20neutral%20background&width=100&height=100&seq=fortune3&orientation=squarish" alt="用户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-bold">赵女士</h4>
+<p class="text-sm text-gray-500">企业高管</p>
+</div>
+</div>
+<p class="text-gray-600 mb-4">通过 AI 运势分析，为我选择了最适合的翡翠手镯，佩戴后事业运势明显提升，重要合作都很顺利。</p>
+<div class="flex items-center text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20young%20Asian%20man%20with%20friendly%20smile.%20Studio%20portrait%20with%20neutral%20background&width=100&height=100&seq=fortune4&orientation=squarish" alt="用户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-bold">李先生</h4>
+<p class="text-sm text-gray-500">创业者</p>
+</div>
+</div>
+<p class="text-gray-600 mb-4">AI 风水顾问帮我调整了办公室布局，并建议在财位放置紫水晶，公司业绩实现了显著增长。</p>
+<div class="flex items-center text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20mature%20Asian%20woman%20with%20elegant%20style.%20Studio%20portrait%20with%20neutral%20background&width=100&height=100&seq=fortune5&orientation=squarish" alt="用户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-bold">王女士</h4>
+<p class="text-sm text-gray-500">设计师</p>
+</div>
+</div>
+<p class="text-gray-600 mb-4">根据 AI 运势分析选择了适合的钻石项链，不仅提升了桃花运，还帮助我找到了理想的伴侣。</p>
+<div class="flex items-center text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 底部区域 -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="text-2xl font-['Pacifico'] text-primary mb-6">logo</h3>
+<p class="text-gray-400 mb-6">二十年专注高端珠宝定制与鉴赏，以匠心传承珠宝文化，为您呈现永恒的珍贵与美丽。</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-weibo-line"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-wechat-line"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-youtube-line"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+<i class="ri-douyin-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-6">快速链接</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-primary transition">首页</a></li>
+<li><a href="#comprehensive" class="text-gray-400 hover:text-primary transition">综合展示</a></li>
+<li><a href="#products" class="text-gray-400 hover:text-primary transition">产品商城</a></li>
+<li><a href="#auction" class="text-gray-400 hover:text-primary transition">拍卖专区</a></li>
+<li><a href="#mystery" class="text-gray-400 hover:text-primary transition">盲盒活动</a></li>
+<li><a href="#appraisal" class="text-gray-400 hover:text-primary transition">鉴定服务</a></li>
+<li><a href="#about" class="text-gray-400 hover:text-primary transition">关于我们</a></li>
+<li><a href="#fortune" class="text-gray-400 hover:text-primary transition">AI 算命</a></li>
+<li><a href="#fengshui" class="text-gray-400 hover:text-primary transition">AI 风水</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-6">客户服务</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-primary transition">会员中心</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition">订单查询</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition">售后服务</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition">常见问题</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition">隐私政策</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition">服务条款</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-bold mb-6">联系我们</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<i class="ri-map-pin-line mt-1 mr-3 text-primary"></i>
+<span class="text-gray-400">北京市朝阳区建国门外大街1号国贸商城三期L1层</span>
+</li>
+<li class="flex items-center">
+<i class="ri-phone-line mr-3 text-primary"></i>
+<span class="text-gray-400">400-888-8888</span>
+</li>
+<li class="flex items-center">
+<i class="ri-mail-line mr-3 text-primary"></i>
+<span class="text-gray-400">service@zhenbao.com</span>
+</li>
+<li class="flex items-center">
+<i class="ri-time-line mr-3 text-primary"></i>
+<span class="text-gray-400">营业时间: 10:00-22:00</span>
+</li>
+</ul>
+<div class="mt-6">
+<h4 class="text-lg font-bold mb-4">订阅资讯</h4>
+<div class="flex">
+<input type="email" placeholder="您的邮箱地址" class="px-4 py-2 bg-gray-800 text-white rounded-l-button border-none text-sm flex-1">
+<button class="bg-primary text-white px-4 py-2 rounded-r-button hover:bg-opacity-90 transition whitespace-nowrap">订阅</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+<div class="flex justify-center space-x-4 mb-4">
+<i class="ri-visa-line text-2xl"></i>
+<i class="ri-mastercard-line text-2xl"></i>
+<i class="ri-alipay-line text-2xl"></i>
+<i class="ri-wechat-pay-line text-2xl"></i>
+<i class="ri-paypal-line text-2xl"></i>
+</div>
+<p>© 2025 臻宝阁珠宝 版权所有 | 京ICP备12345678号</p>
+</div>
+</div>
+</footer>
+<!-- 返回顶部按钮 -->
+<div id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center cursor-pointer shadow-lg opacity-0 invisible transition-all duration-300">
+<i class="ri-arrow-up-line text-xl"></i>
+</div>
+<script id="navigation-script">
+document.addEventListener('DOMContentLoaded', function() {
+// 导航栏滚动效果
+const header = document.querySelector('header');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 50) {
+header.classList.add('shadow-md');
+} else {
+header.classList.remove('shadow-md');
+}
+});
+// 首页链接处理
+const homeLink = document.getElementById('homeLink');
+if (homeLink) {
+homeLink.addEventListener('click', function(e) {
+// 如果当前页面是首页
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+e.preventDefault();
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+}
+// 如果不是首页，将通过href属性正常跳转到首页
+});
+}
+// 平滑滚动到锚点
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+<script id="back-to-top-script">
+document.addEventListener('DOMContentLoaded', function() {
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.remove('opacity-100', 'visible');
+backToTopButton.classList.add('opacity-0', 'invisible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+</script>
+<script id="auction-timer-script">
+document.addEventListener('DOMContentLoaded', function() {
+// 模拟拍卖倒计时
+const timerElements = document.querySelectorAll('.auction-timer');
+if (timerElements.length > 0) {
+// 简单模拟倒计时，实际项目中应该使用服务器时间
+setInterval(function() {
+timerElements.forEach(timer => {
+const hourElement = timer.querySelector('.font-mono:nth-of-type(1)');
+const minuteElement = timer.querySelector('.font-mono:nth-of-type(2)');
+const secondElement = timer.querySelector('.font-mono:nth-of-type(3)');
+if (hourElement && minuteElement && secondElement) {
+let hours = parseInt(hourElement.textContent);
+let minutes = parseInt(minuteElement.textContent);
+let seconds = parseInt(secondElement.textContent);
+seconds--;
+if (seconds < 0) {
+seconds = 59;
+minutes--;
+if (minutes < 0) {
+minutes = 59;
+hours--;
+if (hours < 0) {
+hours = 0;
+minutes = 0;
+seconds = 0;
+}
+}
+}
+hourElement.textContent = hours.toString().padStart(2, '0');
+minuteElement.textContent = minutes.toString().padStart(2, '0');
+secondElement.textContent = seconds.toString().padStart(2, '0');
+}
+});
+}, 1000);
+}
+});
+</script>
+<script id="fortune-interaction-script">
+document.addEventListener('DOMContentLoaded', function() {
+const fortuneButton = document.querySelector('button:contains("开始测算")');
+const fengShuiButton = document.querySelector('button:contains("开始咨询")');
+if (fortuneButton) {
+fortuneButton.addEventListener('click', function() {
+const modal = document.createElement('div');
+modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+modal.innerHTML = `
+<div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+<h3 class="text-xl font-bold mb-4">开始运势测算</h3>
+<form class="space-y-4">
+<div>
+<label class="block text-gray-700 mb-2">出生日期</label>
+<input type="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">出生时间</label>
+<input type="time" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">您的姓名</label>
+<input type="text" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="请输入姓名">
+</div>
+<div class="flex justify-end space-x-4">
+<button type="button" class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100" onclick="this.closest('.fixed').remove()">取消</button>
+<button type="submit" class="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">开始测算</button>
+</div>
+</form>
+</div>
+`;
+document.body.appendChild(modal);
+});
+}
+if (fengShuiButton) {
+fengShuiButton.addEventListener('click', function() {
+const modal = document.createElement('div');
+modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+modal.innerHTML = `
+<div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+<h3 class="text-xl font-bold mb-4">风水咨询预约</h3>
+<form class="space-y-4">
+<div>
+<label class="block text-gray-700 mb-2">咨询类型</label>
+<select class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary">
+<option>家居风水</option>
+<option>办公风水</option>
+<option>店铺风水</option>
+<option>珠宝摆放</option>
+</select>
+</div>
+<div>
+<label class="block text-gray-700 mb-2">联系方式</label>
+<input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="请输入手机号码">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">咨询描述</label>
+<textarea class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" rows="3" placeholder="请简要描述您的需求..."></textarea>
+</div>
+<div class="flex justify-end space-x-4">
+<button type="button" class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100" onclick="this.closest('.fixed').remove()">取消</button>
+<button type="submit" class="px-4 py-2 bg-primary text-white rounded hover:bg-opacity-90">提交预约</button>
+</div>
+</form>
+</div>
+`;
+document.body.appendChild(modal);
+});
+}
+});
+</script>
+<script id="form-interaction-script">
+document.addEventListener('DOMContentLoaded', function() {
+// 表单交互
+const form = document.querySelector('form');
+if (form) {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+alert('预约信息已提交，我们的客服将尽快与您联系！');
+form.reset();
+});
+}
+// 自定义checkbox和radio交互
+const customCheckboxes = document.querySelectorAll('.custom-checkbox input[type="checkbox"], .custom-checkbox input[type="radio"]');
+customCheckboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+// 这里可以添加额外的交互效果
+});
+});
+// 自定义switch交互
+const customSwitches = document.querySelectorAll('.custom-switch input');
+customSwitches.forEach(switchEl => {
+switchEl.addEventListener('change', function() {
+// 这里可以添加额外的交互效果
+});
+});
+});
+</script>
+</body>
+</html>
